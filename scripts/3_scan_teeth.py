@@ -769,7 +769,6 @@ def run_teeth_scan():
     score_contrast_a = (x_at_075 - x_at_05) / (quartile_75 - median)
     score_contrast_b = x_at_05 - score_contrast_a * median
     logging.info(f"contrast sigmoid function: c(x) = 1 / (1 + exp(-({score_contrast_a} * x + {score_contrast_b})))")
-    logging.info(f"value sigmoid function: v(x) = 1 / (1 + exp(-({S_VALUE_SIGMOID_COEFF_1} * ((x - {OTSU_THRESHOLD} + ({OTSU_THRESHOLD} - {PERCENTILE_25}) * {S_VALUE_SIGMOID_COEFF_2}) / ({OTSU_THRESHOLD} - {PERCENTILE_25})) ^ 2 + 1.5)))")
     logging.info(f"proximity sigmoid function: p(x) = 1 / (1 + exp(-(x * {S_PROXIMITY_SIGMOID_COEFF} * {MAX_EXPECTED_RADIUS} + {S_PROXIMITY_SIGMOID_OFFSET})))")
 
     # Find the point ID of the point to search for
